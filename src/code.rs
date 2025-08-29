@@ -42,13 +42,8 @@ impl Code {
 }
 
 impl Distribution<Code> for StandardUniform {
-    fn sample<R: Rng + ?Sized>(&self, _rng: &mut R) -> Code {
-        Code(
-            rand::random(),
-            rand::random(),
-            rand::random(),
-            rand::random(),
-        )
+    fn sample<R: Rng + ?Sized>(&self, rng: &mut R) -> Code {
+        Code(rng.random(), rng.random(), rng.random(), rng.random())
     }
 }
 
